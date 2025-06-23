@@ -1,11 +1,11 @@
 public class Car {
-    private String manufacturer;
-    private String model;
-    private  int year;
-    private int horsepower;
-    private int weight;
-    private int topSpeed;
-    private double acceleration;
+    private final String manufacturer;
+    private final String model;
+    private final int year;
+    private final int horsepower;
+    private final int weight;
+    private final int topSpeed;
+    private final double acceleration;
 
     public Car(String manufacturer, String model, int year, int horsepower, int weight, int topSpeed, double acceleration){
         this.manufacturer = manufacturer;
@@ -15,34 +15,6 @@ public class Car {
         this.weight = weight;
         this.topSpeed = topSpeed;
         this.acceleration = acceleration;
-    }
-
-    public String getManufacturer() {
-        return manufacturer;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public int getHorsepower() {
-        return horsepower;
-    }
-
-    public int getWeight() {
-        return weight;
-    }
-
-    public int getTopSpeed() {
-        return topSpeed;
-    }
-
-    public double getAcceleration(){
-        return acceleration;
     }
 
     public double getPerformanceScore(){
