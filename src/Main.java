@@ -12,7 +12,7 @@ public class Main {
         System.out.print("Player 2, enter your username: ");
         String secondPlayerUsername = scanner.nextLine();
 
-        boolean playAgain = false;
+        boolean playAgain;
 
         do {
             int firstPlayerPoints = 0;
@@ -23,13 +23,13 @@ public class Main {
                 Car firstPlayerCar = createCar(scanner);
 
                 System.out.println(secondPlayerUsername + ", create your car!");
-                Car secondPlayeCar = createCar(scanner);
+                Car secondPlayerCar = createCar(scanner);
 
                 System.out.println(firstPlayerUsername + "'s car: " + firstPlayerCar);
-                System.out.println(secondPlayerUsername + "'s car: " + secondPlayeCar);
+                System.out.println(secondPlayerUsername + "'s car: " + secondPlayerCar);
 
                 double firstPlayerCarScore = firstPlayerCar.getPerformanceScore();
-                double secondPlayerCarScore = secondPlayeCar.getPerformanceScore();
+                double secondPlayerCarScore = secondPlayerCar.getPerformanceScore();
 
                 System.out.println(firstPlayerUsername + "'s car performance score: " + firstPlayerCarScore + " points!");
                 System.out.println(secondPlayerUsername + "'s car performance score: " + secondPlayerCarScore + " points!");
@@ -38,40 +38,21 @@ public class Main {
                     System.out.println("The winner is: " + firstPlayerUsername + " with " + firstPlayerCar + "!");
                     firstPlayerPoints++;
                 } else if (secondPlayerCarScore > firstPlayerCarScore) {
-                    System.out.println("The winner is: " + secondPlayerUsername + " with " + secondPlayeCar + "!");
+                    System.out.println("The winner is: " + secondPlayerUsername + " with " + secondPlayerCar + "!");
                     secondPlayerPoints++;
                 } else {
                     System.out.println("It' a tie!");
                 }
             }
-                if (firstPlayerPoints > secondPlayerPoints) {
-                    System.out.println("Congratulations! " + firstPlayerUsername + " has won the game!");
-                    System.out.print("Wanna play again? (Yes/No) ");
-                    String decision = scanner.nextLine();
-                    if (decision.equals("Yes")) {
-                        playAgain = true;
-                    }else if (decision.equals("No")) {
-                        playAgain = false;
-                    }
-                }
-                else if (secondPlayerPoints > firstPlayerPoints) {
-                    System.out.println("Congratulations! " + secondPlayerUsername + " has won the game!");
-                    System.out.print("Wanna play again? (Yes/No)");
-                    String decision = scanner.nextLine();
-                    if (decision.equals("Yes")) {
-                        playAgain = true;
-                    } else if (decision.equals("No")) {
-                        playAgain = false;
-                    }
-                } else {
-                    System.out.println("It is a tie! Wanna play again?");
-                    String decision = scanner.nextLine();
-                    if (decision.equals("Yes"))  {
-                        playAgain = true;
-                    } else if (decision.equals("No")) {
-                        playAgain = false;
-                    }
-                    }
+
+            if (firstPlayerPoints > secondPlayerPoints) {
+                System.out.println("🏆 Congratulations! " + firstPlayerUsername + " has won the game!");
+            } else if (secondPlayerPoints > firstPlayerPoints) {
+                System.out.println("🏆 Congratulations! " + secondPlayerUsername + " has won the game!");
+            } else {
+                System.out.println("🤝 It's a tie!");
+            }
+                playAgain = askToPlayAgain(scanner);
         }while (playAgain);
     }
 
@@ -98,5 +79,11 @@ public class Main {
         double acceleration = Double.parseDouble(scanner.nextLine());
 
         return new Car(manufacturer, model, year, horsepower, weight, topSpeed, acceleration);
+    }
+
+    public static boolean askToPlayAgain(Scanner scanner){
+        System.out.print("Wanna play again? (Yes/No)");
+        String decision = scanner.nextLine();
+        return decision.equalsIgnoreCase("Yes");
     }
 }
