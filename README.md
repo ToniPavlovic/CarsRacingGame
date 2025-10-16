@@ -1,4 +1,4 @@
-# 🏁 Classic Car Racing Game (Java)
+# Classic Car Racing Game 
 
 A simple 2-player text-based racing game that goes for 3 races written in Java.<br>
 Players decide which 3 tracks they want to race on for their wished number of laps.<br>
@@ -7,7 +7,7 @@ The game then calculates the vicotry points which players have earned by winning
 
 ---
 
-## 🚗 Features
+## Features
 
 - Lets players name the tracks they want to race on and the number of laps
 - Create custom cars for both players via console input
